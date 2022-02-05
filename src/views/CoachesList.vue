@@ -1,9 +1,10 @@
 <template>
   <section>Search/Filter</section>
   <section>
+    <base-card>
     <div class="controls">
-      <button>Refresh</button>
-      <router-link to="/register">Register As Coach</router-link>
+      <base-button mode="outline">Refresh</base-button>
+      <base-button link to="/register">Register As Coach</base-button>
     </div>
     <ul v-if="hasCoaches">
       <coach-item 
@@ -18,6 +19,7 @@
       <coach-item>
     </ul>
     <h2 v-else>No Coaches Found</h2>
+    </base-card>
   </section>
 </template>
 
