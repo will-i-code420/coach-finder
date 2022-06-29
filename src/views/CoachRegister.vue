@@ -1,12 +1,24 @@
 <template>
-  <div>Register Coach</div>
+  <section>
+    <base-card>
+      <h2>Register As A Coach</h2>
+      <coach-form @register-coach="registerCoach"></coach-form>
+    </base-card>
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import CoachForm from "../components/coaches/CoachForm.vue";
 export default {
   name: "CoachRegister",
+  components: {
+    CoachForm,
+  },
+  methods: {
+    registerCoach(coachForm) {
+      this.$store.dispatch("coaches/register", coachForm);
+    },
+  },
 };
 </script>
 

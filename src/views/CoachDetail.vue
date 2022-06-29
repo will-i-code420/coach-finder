@@ -1,26 +1,29 @@
 <template>
   <section>
     <article>
-    <base-card>
-    <h2>{{fullName}}</h2>
-    <h3>${{coach.hourlyRate}} / hour</h3>
-    </base-card>
-    </article>
-    <article>
-    <base-card>
-    <header>
-    <h2>Interested? Contact me now!</h2>
-    <base-button link :to="contactLink">Contact<base-button>
-    </header>
-    <router-link></router-link>
-    </base-card>
+      <base-card>
+        <h2>{{ fullName }}</h2>
+        <h3>${{ coach.hourlyRate }} / hour</h3>
+      </base-card>
     </article>
     <article>
       <base-card>
-      <base-badge v-for="area in areas"
-        :key="area" :type="area"
-        :title="area"></base-badge>
-      <p>{{coach.description}}</p>
+        <header>
+          <h2>Interested? Contact me now!</h2>
+          <base-button link :to="contactLink">Contact</base-button>
+        </header>
+        <router-link></router-link>
+      </base-card>
+    </article>
+    <article>
+      <base-card>
+        <base-badge
+          v-for="area in areas"
+          :key="area"
+          :type="area"
+          :title="area"
+        ></base-badge>
+        <p>{{ coach.description }}</p>
       </base-card>
     </article>
   </section>
@@ -54,5 +57,6 @@ export default {
     },
   },
 };
+</script>
 
 <style scoped></style>;
