@@ -12,30 +12,36 @@
       <label for="rate">Hourly Rate:</label>
       <input id="rate" type="number" v-model.number="rate" />
     </p>
-    <h3>Areas Of Expertise</h3>
-    <p class="form-control">
-      <label for="frontend">Frontend</label>
-      <input
-        id="frontend"
-        type="checkbox"
-        value="frontend"
-        v-model="checkedAreas"
-      />
-      <label for="backend">Backend</label>
-      <input
-        id="backend"
-        type="checkbox"
-        value="backend"
-        v-model="checkedAreas"
-      />
-      <label for="career">Career</label>
-      <input
-        id="career"
-        type="checkbox"
-        value="career"
-        v-model="checkedAreas"
-      />
-    </p>
+    <base-card>
+      <h3>Areas Of Expertise</h3>
+      <p class="form-control">
+        <input
+          id="frontend"
+          type="checkbox"
+          value="frontend"
+          v-model="checkedAreas"
+        />
+        <label for="frontend">Frontend</label>
+      </p>
+      <p class="form-control">
+        <input
+          id="backend"
+          type="checkbox"
+          value="backend"
+          v-model="checkedAreas"
+        />
+        <label for="backend">Backend</label>
+      </p>
+      <p class="form-control">
+        <input
+          id="career"
+          type="checkbox"
+          value="career"
+          v-model="checkedAreas"
+        />
+        <label for="career">Career</label>
+      </p>
+    </base-card>
     <p class="form-control">
       <label for="description">Describe Yourself</label>
       <textarea
@@ -64,7 +70,7 @@ export default {
   },
   methods: {
     registerCoach() {
-      const id = new Date.toISOString();
+      const id = new Date().toISOString();
       const newCoach = {
         id,
         firstName: this.firstName,

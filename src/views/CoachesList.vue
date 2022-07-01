@@ -6,7 +6,9 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/register">Register As Coach</base-button>
+        <base-button link to="/register" v-if="!notRegistered"
+          >Register As Coach</base-button
+        >
       </div>
       <ul v-if="hasCoaches">
         <coach-item
@@ -15,7 +17,7 @@
           :id="coach.id"
           :firstName="coach.firstName"
           :lastName="coach.lastName"
-          :rate="coach.rate"
+          :rate="coach.hourlyRate"
           :areas="coach.areas"
         >
         </coach-item>
@@ -63,6 +65,9 @@ export default {
     },
     hasCoaches() {
       return this.$store.getters["coaches/hasCoaches"];
+    },
+    notRegistered() {
+      return this.$store.getters["getUserId"];
     },
   },
   methods: {

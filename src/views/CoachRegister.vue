@@ -17,6 +17,8 @@ export default {
   methods: {
     registerCoach(coachForm) {
       this.$store.dispatch("coaches/register", coachForm);
+      this.$store.dispatch("setUserId", coachForm);
+      this.$router.replace("/coaches");
     },
   },
 };
